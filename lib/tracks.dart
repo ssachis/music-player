@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'components/custom_list_title.dart';
+import 'm2.dart';
 
 
 
@@ -9,57 +10,62 @@ class Tracks extends StatefulWidget {
 }
 
 class _TracksState extends State<Tracks> {
-  List musicList=[
-    {
-      'title':"alone",
-      'singer':"marshmellow",
-      'url':
-          "https://soundcloud.com/marshmellomusic/alone",
-      'coverUrl':
-          "https://pbs.twimg.com/profile_images/1087600756541186048/sjZ3GY4l_400x400.jpg",
+  List <F>musicList=[
+    F(
+      "Night Sky",
+     "Micheal Ramir",
 
-    },
-{'title':"coffee for your head",
-'singer':"death bed",
-'url':
-"https://soundcloud.com/powfu/death-bed-prod-otterpop",
-'coverUrl':
+          "https://assets.mixkit.co/music/preview/mixkit-night-sky-970.mp3",
+
+          "https://discovery.sndimg.com/content/dam/images/discovery/fullset/2020/4/2/nightsky2_getty.jpg.rend.hgtvcom.616.411.suffix/1585862428885.jpeg",
+
+  ), F
+  ( "Thinking About You",
+"Arulo",
+
+"https://assets.mixkit.co/music/preview/mixkit-thinking-about-you-234.mp3",
+
 "https://upload.wikimedia.org/wikipedia/en/3/3e/Powfu_-_Death_Bed.png",
-},
-    {'title':"2002",
-      'singer':"anne marie",
-      'url':
-      "https://soundcloud.com/yumi-pies/anne-marie-2002-acoustic",
-      'coverUrl':
-      "https://i.scdn.co/image/ab67616d0000b273d04b0657298bd6401896de5e",
-    },
-    {'title':"fireflies",
-      'singer':"Owl City",
-      'url':
-      "https://soundcloud.com/owlcityofficial/fireflies",
-      'coverUrl':
-      "https://i1.sndcdn.com/artworks-000138047568-lmgmfg-t500x500.jpg",
-    },
-    {'title':"Diamonds",
-      'singer':"Rihanna",
-      'url':
-      "https://soundcloud.com/rihanna/diamonds",
-      'coverUrl':
-      "https://slm-assets.secondlife.com/assets/19196947/view_large/diamonds.jpg?1512907743",
-    },
-    {'title':"Happier",
-      'singer':"marshmello ft-bastille",
-      'url':
-      "https://soundcloud.com/marshmellomusic/happier-ft-bastille",
-      'coverUrl':
-      "https://upload.wikimedia.org/wikipedia/en/e/e5/Marshmello_and_Bastille_Happier.png",
-    },
+), F
+  ( "Astrology",
+  "Arulo",
 
+  "https://assets.mixkit.co/music/preview/mixkit-astrology-246.mp3",
+
+  "https://www.dummies.com/wp-content/uploads/astrology-signs-sun.jpg",
+  )
+
+  , F
+  ( "Valley sunset",
+  "Alejandro Magaña ",
+
+  "https://assets.mixkit.co/music/preview/mixkit-valley-sunset-127.mp3",
+
+  "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRAX0N11Xhf45GpqpicrXQerPkG4Y-VaIWJkeC7ZK7be0iasp9Blwmvv0QghYNFfXB4GwA&usqp=CAU",
+  )
+    , F
+      ( "Forest Treasure",
+      "Alejandro Magaña",
+
+      "https://assets.mixkit.co/music/preview/mixkit-forest-treasure-138.mp3",
+
+      "https://images.pexels.com/photos/312839/pexels-photo-312839.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+    ),
+    F
+      ( "Gimme that Groove!",
+      "Micheal Ramir",
+
+      "https://assets.mixkit.co/music/preview/mixkit-gimme-that-groove-872.mp3",
+
+      "https://static01.nyt.com/images/2019/11/04/opinion/funk-promo/funk-promo-videoSixteenByNine3000.jpg?year=2019&h=1687&w=3000&s=3656c5f263514736ad46adc97436a557a3ef0ff28781b4a45e961acd912495fd&k=ZQJBKqZ0VN&tw=1",
+    ),
 
 
 
 
   ];
+
+  //get index => null;
 
   Widget build(context) {
     return Scaffold(
@@ -156,10 +162,17 @@ class _TracksState extends State<Tracks> {
 
                 itemCount:musicList.length,
                 itemBuilder: (context,index) =>customListTile(
-                  onTap:(){},
-                  title:musicList[index]['title'],
-                singer:musicList[index]['singer'],
-                cover:musicList[index]['coverUrl'],
+                  onTap:(){
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => AudioPage(
+                          f: musicList[index],
+                        )));
+
+                  },
+                  title:musicList[index].name,
+                singer:musicList[index].artist,
+                cover:musicList[index].ImageUrl,
+
 
               ),
           ),
@@ -173,4 +186,5 @@ class _TracksState extends State<Tracks> {
 
     );
   }
+
 }

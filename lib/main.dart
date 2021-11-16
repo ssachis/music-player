@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
-import 'package:music/m2.dart';
+//import 'package:music/m2.dart';
+import 'package:music/tracks.dart';
 void main() {
   runApp(MyApp(
 
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Colors.grey[200],
         primarySwatch: Colors.blue,
       ),
-      home: AudioPage(),
+      home: Tracks(),
     );
   }
 }
